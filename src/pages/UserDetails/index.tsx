@@ -90,17 +90,17 @@ export default function UserDetails() {
 
       <div className="card w-100 shadow bg-light">
         <div className="card-body d-flex flex-column gap-2">
-          <header className="d-flex flex-row">
+          <header className="d-flex flex-column flex-md-row">
 
             <img className="ms-2 me-3 rounded-2 w-120px h-120px" src={user?.avatar_url} alt="avatar do usuário" />
 
-            <div className="d-flex flex-column gap-2 w-80">
+            <div className="user-detail-header-info d-flex flex-column gap-2 w-80">
               <h3 className="mb-0">{user?.name}</h3>
 
               <span className="text-secondary">{user?.bio}</span>
 
               <div className="d-flex flex-column gap-1 text-secondary mt-2">
-                <div className="d-flex gap-3">
+                <div className="d-flex flex-column flex-md-row gap-3">
                   <UserInfoItem Icon={FaRegBuilding} information={user?.company} />
                   <UserInfoItem Icon={FaMapMarkerAlt} information={user?.location} />
                   <UserInfoItem Icon={FaRegEnvelope} information={user?.email} />

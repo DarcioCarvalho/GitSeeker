@@ -25,10 +25,10 @@ export default function Home() {
 
 
   return (
-    <main className="d-flex flex-column align-items-center gap-3 pt-5">
-      <h1 className="display-5 fw-bold">Descubra desenvolvedores no Github</h1>
+    <main className="home-container d-flex flex-column align-items-center gap-3 pt-5">
+      <h1 className="home-title display-5 fw-bold">Descubra desenvolvedores no Github</h1>
 
-      <section className="w-55 d-flex flex-column align-items-center gap-3">
+      <section className="home-content w-55 d-flex flex-column align-items-center gap-3">
 
         <span className="text-secondary d-inline-block text-center">Busque por um usuário e explore o seu perfil completo: detalhes, estatísticas e todos os repositórios públicos ordenado do seu jeito.</span>
 
