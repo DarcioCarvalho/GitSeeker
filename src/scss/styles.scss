@@ -6,6 +6,7 @@ body {
   font-family: 'Ubuntu', sans-serif;
 }
 
+/* Width */
 .w-fit {
   width: fit-content;
 }
@@ -18,10 +19,24 @@ body {
   width: 20px;
 }
 
+.w-18rem {
+  width: 18rem;
+}
+
+
+/* Height */
 .h-20px {
   height: 20px;
 }
 
+
+/* Margin */
+.mt-6 {
+  margin-top: 4rem;
+}
+
+
+/* Font Size */
 .fs-7 {
   font-size: 14px;
 }
@@ -30,6 +45,8 @@ body {
   font-size: 12px;
 }
 
+
+/* FiedSet with Input - Border for Focus */
 .search-fieldset {
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 

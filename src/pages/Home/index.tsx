@@ -1,16 +1,18 @@
 import { useState } from "react"
-import { fetchGithubUser } from "../../services/github/fetchGithubUser";
-import { useToast } from "../../contexts/ToasterProvider";
-import { FaSearch } from "react-icons/fa";
+import { useToast } from "../../contexts/ToasterContext";
+import { FaRegStar, FaSearch, FaUsers } from "react-icons/fa";
+import FeatureCard from "../../components/FeatureCard";
+import { useSearchUser } from "../../hooks/useSearchUser";
 
 export default function Home() {
 
   const { showError, showSuccess } = useToast();
+  const { searchUser } = useSearchUser();
   const [username, setUsername] = useState("");
 
-  const handleGetGithubUsername = async () => {
+  const handleSearchGithubUsername = async () => {
     try {
-      const { data } = await fetchGithubUser(username);
+      const { data } = await searchUser(username);
       console.log("Github User:", data);
 
       showSuccess("Parabéns!!! A busca dos dados concluiu com sucesso");
@@ -31,7 +33,7 @@ export default function Home() {
 
         <span className="text-secondary d-inline-block text-center">Busque por um usuário e explore o seu perfil completo: detalhes, estatísticas e todos os repositórios públicos ordenado do seu jeito.</span>
 
-        <fieldset className="search-fieldset form-control d-flex flex-row gap-2 align-items-center">
+        <fieldset className="search-fieldset shadow-sm form-control d-flex flex-row gap-2 align-items-center">
           <FaSearch className="text-secondary" />
           <input
             className="flex-fill"
@@ -43,23 +45,29 @@ export default function Home() {
           <button
             className="btn btn-primary"
             type="button"
-            onClick={handleGetGithubUsername}
+            onClick={handleSearchGithubUsername}
           >Buscar</button>
         </fieldset>
       </section>
 
-      <section>
-        <div className="card" style={{ width: "18rem" }}>
-          <div className="card-body d-flex flex-column gap-2">
-            {/*              border-radius: 6px e padding: 10px */}
-            <div className="d-flex align-items-center justify-content-center rounded-2 w-fit p-2 bg-primary-subtle">
-              <FaSearch className="text-primary" />
-            </div>
-            <h6 className="card-title mb-0">Busque qualquer usuário</h6>
-            <p className="card-text fs-7">Encontre desenvolvedores pelo nome de usuário do Github em segundos.</p>
+      <section className="d-flex flex-row align-self-stretch justify-content-between mt-6">
+        <FeatureCard
+          Icon={FaSearch}
+          title="Busque qualquer usuário"
+          description="Encontre desenvolvedores pelo nome de usuário do Github em segundos."
+        />
 
-          </div>
-        </div>
+        <FeatureCard
+          Icon={FaUsers}
+          title="Explore perfis"
+          description="Veja avatar, bio, e-mail, seguidores e quem o usuário está seguindo."
+        />
+
+        <FeatureCard
+          Icon={FaRegStar}
+          title="Ordene repositórios"
+          description="Liste os repositórios por estrela, data de atualização ou nome."
+        />
       </section>
 
     </main>
