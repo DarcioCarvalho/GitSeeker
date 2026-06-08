@@ -13,7 +13,6 @@ export default function FeatureCard({ Icon, title, description }: FeatureCardPro
         <div className="d-flex align-items-center justify-content-center rounded-2 w-fit p-2 bg-primary-subtle">
 
           <Icon className="text-primary" />
-          {/* <FaSearch className="text-primary" /> */}
         </div>
         <h6 className="card-title mb-0">{title}</h6>
         <p className="card-text fs-7">{description}</p>

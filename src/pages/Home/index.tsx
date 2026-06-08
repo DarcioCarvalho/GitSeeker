@@ -1,25 +1,24 @@
 import { useState } from "react"
-import { useToast } from "../../contexts/ToasterContext";
+import { useNavigate } from "react-router-dom";
 import { FaRegStar, FaSearch, FaUsers } from "react-icons/fa";
+
 import FeatureCard from "../../components/FeatureCard";
+import { useToast } from "../../contexts/ToasterContext";
 import { useSearchUser } from "../../hooks/useSearchUser";
 
 export default function Home() {
 
-  const { showError, showSuccess } = useToast();
+  const navigate = useNavigate();
+  const { showError } = useToast();
   const { searchUser } = useSearchUser();
   const [username, setUsername] = useState("");
 
   const handleSearchGithubUsername = async () => {
     try {
-      const { data } = await searchUser(username);
-      console.log("Github User:", data);
+      await searchUser(username);
+      navigate(`/users/${username}`);
 
-      showSuccess("Parabéns!!! A busca dos dados concluiu com sucesso");
-
-    } catch (error) {
-      console.log("Erro: Não foi possível buscar os dados do usuário no Github, tente novamente!", error);
-
+    } catch {
       showError("Não foi possível buscar os dados do usuário no Github, tente novamente!");
     }
   }
