@@ -5,7 +5,7 @@ import Layout from "./components/Layout";
 
 function App() {
 
-  const basename = import.meta.env.DEV ? '' : '/gitseeker';
+  const basename = import.meta.env.DEV ? '' : '/gitseekerbr';
 
   return (
     <BrowserRouter basename={basename}>
