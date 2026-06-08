@@ -1,14 +1,16 @@
 import { FaStar } from "react-icons/fa";
 import type { Repository } from "../models/Repository";
 import { getLanguageColor } from "../utils/githubUtils";
+import { useNavigate } from "react-router-dom";
 
 interface RepositoryInfoItemProps {
   repository: Repository;
 }
 
 export default function RepositoryInfoItem({ repository }: RepositoryInfoItemProps) {
+  const navigate = useNavigate();
   return (
-    <div className="card w-100 h-82px shadow-sm">
+    <div className="card w-100 h-82px shadow-sm card-button" onClick={() => navigate(`/users/${repository.owner?.login}/repos/${repository.name}`)}>
       <div className="card-body d-flex justify-content-between gap-2">
 
         <div className="d-flex flex-column gap-2">

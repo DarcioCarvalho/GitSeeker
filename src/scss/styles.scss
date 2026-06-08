@@ -90,3 +90,10 @@ body {
   height: 14px;
   border-radius: 50%;
 }
+
+.card-button {
+  &:hover {
+    background-color: var(--bs-secondary-bg);
+    cursor: pointer;
+  }
+}
