@@ -269,8 +269,8 @@ Algumas melhorias que podem ser implementadas futuramente:
 
 ## 👨‍💻 Autor
 
-Desenvolvido por Dárcio Nuno Carvalho.
-_ArquiCode Soft Solution_
+Desenvolvido por **Dárcio Nuno Carvalho**.
+<br>*ArquiCode Soft Solution*
 
 LinkedIn:
 https://www.linkedin.com/in/darcio-nuno-carvalho
